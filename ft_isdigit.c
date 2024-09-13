@@ -1,6 +1,4 @@
 #include "libft.h"
-#include <stdio.h>
-#include <ctype.h>
 
 int     ft_isdigit(int c)
 {
