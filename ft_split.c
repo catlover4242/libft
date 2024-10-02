@@ -65,7 +65,7 @@ char **ft_split(char const *s, char c)
         {
             start = i;
         }
-        if (s[i] != c && s[i + 1] == c || s[i + 1] == '\0')
+        if (s[i] != c || s[i + 1] == c || s[i + 1] == '\0')
         {
             res[index] = get_word(s, start, i + 1);
             index++;

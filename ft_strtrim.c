@@ -7,7 +7,7 @@ static int  prout(char const *s1, char const *set)
 
     i = 0;
     len = strlen(s1);
-    while (i < len && ft_strchr(set, s1[i] != NULL))
+    while (i < len && ft_strchr(set, s1[i]) != NULL)
     {
         i++;
     }
@@ -47,6 +47,5 @@ char *ft_strtrim(char const *s1, char const *set)
     if (str == NULL)
         return (NULL);
     ft_strlcpy(str, s1 + debut, fin - debut + 1);
-    free(s1);
     return (str);
 }
