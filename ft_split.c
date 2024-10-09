@@ -11,87 +11,91 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-static int	compteur(const char *s, char c)
+int	compteur(char const *str, char sep)
 {
-	int	i;
-	int	compteuur;
+	int	compte;
 
-	i = 0;
-	compteuur = 0;
-	while (s[i] != '\0')
+	compte = 0;
+	while (*str)
 	{
-		if (s[i] != c && (i == 0 || s[i - 1] == c))
-		{
-			compteuur++;
-		}
-		i++;
+		while (*str && *str == sep)
+			str++;
+		if (*str)
+			compte++;
+		while (*str && *str != sep)
+			str++;
 	}
-	return (compteuur);
+	return (compte);
 }
 
-static char	*get_word(const char *s, int debut, int fin)
+char	*mallocmot(char const *str, char sep)
 {
 	int		len;
-	int		i;
-	char	*mot;
+	char	*word;
 
-	i = 0;
-	len = fin - debut;
-	mot = (char *)malloc((len + 1) * sizeof(char));
-	if (!mot)
+	len = 0;
+	while (str[len] && str[len] != sep)
+		len++;
+	word = (char *) malloc(sizeof(char) * (len + 1));
+	if (!word)
 		return (NULL);
-	while (i < len)
-	{
-		mot[i] = s[debut + i];
-		i++;
-	}
-	mot[len] = '\0';
-	return (mot);
+	word[len] = '\0';
+	while (len--)
+		word[len] = str[len];
+	return (word);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	int		i;
-	int		start;
-	int		index;
-	int		compteurmot;
-	char	**res;
+	int		mots;
+	char	**tab;
 
 	i = 0;
-	start = 0;
-	index = 0;
-	compteurmot = compteur(s, c);
-	res = (char **)malloc((compteurmot + 1) * sizeof(char *));
-	if (!res)
+	mots = compteur(s, c);
+	tab = (char **) malloc(sizeof(char *) * (mots + 1));
+	if (!tab)
 		return (NULL);
-	while (s[i] != '\0')
+	while (*s)
 	{
-		if (s[i] != c && (i == 0 || s[i - 1] == c))
-			start = i;
-		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+		while (*s && *s == c)
+			s++;
+		if (*s)
 		{
-			res[index] = get_word(s, start, i + 1);
+			tab[i++] = mallocmot(s, c);
+			while (*s && *s != c)
+				s++;
 		}
-		i++;
 	}
-	res[compteurmot] = NULL;
-	return (res);
+	tab[i] = 0;
+	return (tab);
 }
 
 /*
-int main()
-{
-	char **result = ft_split("test,bonjour,ca,va", ',');
-	int i = 0;
-	while (result[i] != NULL)
-	{
-		printf("%s\n", result[i]);
-		free(result[i]);
-		i++;
-	}
-	free(result);
-	return (0);
+int main() {
+    char str[] = "Bonjour tout le monde !";
+    char sep = ' ';
+    char **result;
+    int i = 0;
+
+    // Appel de la fonction ft_split
+    result = ft_split(str, sep);
+
+    // Vérification si l'allocation a réussi
+    if (!result) {
+        printf("Erreur d'allocation mémoire.\n");
+        return 1; // Erreur
+    }
+
+    // Impression des mots extraits
+    while (result[i]) {
+        printf("Mot %d: %s\n", i, result[i]);
+        free(result[i]); // Libération de la mémoire allouée pour chaque mot
+        i++;
+    }
+    free(result);
+
+    return 0; // Succès
 }
 */
