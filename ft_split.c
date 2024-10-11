@@ -46,30 +46,52 @@ char	*mallocmot(char const *str, char sep)
 	return (word);
 }
 
-char	**ft_split(char const *s, char c)
+void	*free_split(char **tab, int i)
 {
-	int		i;
-	int		mots;
-	char	**tab;
+	while (i >= 0)
+	{
+		free(tab[i]);
+		i--;
+	}
+	free(tab);
+	return (NULL);
+}
+
+char	**fill_split(char **tab, char const *s, char c)
+{
+	int	i;
 
 	i = 0;
-	mots = compteur(s, c);
-	tab = (char **) malloc(sizeof(char *) * (mots + 1));
-	if (!tab)
-		return (NULL);
 	while (*s)
 	{
 		while (*s && *s == c)
 			s++;
 		if (*s)
 		{
-			tab[i++] = mallocmot(s, c);
+			tab[i] = mallocmot(s, c);
+			if (!tab[i])
+				return (free_split(tab, i - 1));
+			i++;
 			while (*s && *s != c)
 				s++;
 		}
 	}
-	tab[i] = 0;
+	tab[i] = NULL;
 	return (tab);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		mots;
+	char	**tab;
+
+	if (!s)
+		return (NULL);
+	mots = compteur(s, c);
+	tab = (char **) malloc(sizeof(char *) * (mots + 1));
+	if (!tab)
+		return (NULL);
+	return (fill_split(tab, s, c));
 }
 
 /*
