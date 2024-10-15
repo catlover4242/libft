@@ -36,26 +36,36 @@ SRCS = ft_atoi.c \
 		ft_strtrim.c \
 		ft_substr.c \
 		ft_tolower.c \
-		ft_toupper.c \
-	
-OBJ = $(SRCS:%.c=%.o)
+		ft_toupper.c
 
-$(NAME): $(OBJ)
-	@ar r $@ $^
-	@echo "compiled"
+OBJS =	$(SRCS:.c=.o)
 
-%.o : %.c
-	@echo "Compiling: $<"
-	@$(CC) $(CFLAGS) -I. -c $< -o $@
+BONUS = ft_lstnew.c \
+		ft_lstsize.c \
+		ft_lstmap.c \
+		ft_lstlast.c \
+		ft_lstiter.c \
+		ft_lstdelone.c \
+		ft_lstclear.c \
+		ft_lstadd_back.c \
+		ft_lstadd_front.c
 
-all: $(NAME)
+BONUS_OBJS = $(BONUS:.c=.o)
+
+all:	$(NAME)
+
+$(NAME):	$(OBJS)
+			ar rcs $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJ)
+			rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+			rm -f $(NAME)
+
+bonus:	$(OBJS) $(BONUS_OBJS)
+			ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 re: fclean all
 
-.PHONY: clean fclean re
+.PHONY: all clean fclean re bonus
