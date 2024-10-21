@@ -25,15 +25,46 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	while (s1[i] != '\0')
 	{
-		string[u++] = s1[i];
+		string[u] = s1[i];
+		u++;
 		i++;
 	}
 	i = 0;
 	while (s2[i] != '\0')
 	{
-		string[u++] = s2[i];
+		string[u] = s2[i];
+		u++;
 		i++;
 	}
 	string[u] = '\0';
 	return (string);
 }
+
+/*
+size_t	ft_strlen(const char *c)
+{
+	size_t	i;
+
+	i = 0;
+	while (c[i] != '\0')
+		i++;
+	return (i);
+}
+
+int	main()
+{
+	char *s1 = "test";
+	char *s2 = "bjr";
+	char *result = ft_strjoin(s1, s2);
+
+	if (result)
+	{
+		printf("%s\n", result);
+	}
+	else
+	{
+		printf("probleme de l'allocation memoire");
+	}
+	return 0;
+}
+*/

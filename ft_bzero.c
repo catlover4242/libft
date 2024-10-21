@@ -25,3 +25,13 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
+
+/*
+int main() {
+    char string[10] = "Hello";
+    printf("avant: %s\n", string);
+    ft_bzero(string, strlen(string));
+    printf("apres: [%s]\n", string);
+    return 0;
+}
+*/

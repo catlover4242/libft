@@ -41,7 +41,7 @@ int	ft_atoi(const char *s)
 /*
 int	main(void)
 {
-	char s1[] = "+-1";
+	char s1[] = "";
 
 	printf("%d\n", ft_atoi(s1));
 	printf("%d\n", atoi(s1));

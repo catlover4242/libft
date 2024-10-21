@@ -36,3 +36,38 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	dest[i] = '\0';
 	return (dst_len + src_len);
 }
+
+/*
+size_t	ft_strlen(const char *c)
+{
+	size_t	i;
+
+	i = 0;
+	while (c[i] != '\0')
+		i++;
+	return (i);
+}
+
+
+int main() {
+    char dest1[50] = "Bonjour, ";
+    char dest2[50] = "Bonjour, ";
+    const char *src = "comment ça va ?";
+    size_t size = 50; // Taille maximale de destination
+
+    // Appel à la fonction standard strlcat
+    size_t result_std = strlcat(dest1, src, size);
+    
+    // Appel à ta fonction ft_strlcat
+    size_t result_custom = ft_strlcat(dest2, src, size);
+
+    // Affichage des résultats
+    printf("Standard strlcat:\n");
+    printf("Résultat : %zu, Chaîne : '%s'\n", result_std, dest1);
+
+    printf("\nCustom ft_strlcat:\n");
+    printf("Résultat : %zu, Chaîne : '%s'\n", result_custom, dest2);
+
+    return 0;
+}
+*/

@@ -38,3 +38,25 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (NULL);
 }
+/*
+int main() {
+    const char *haystack = "Hello, world!";
+    const char *needle1 = "world";
+    const char *needle2 = "Hello";
+
+    size_t len = 1;
+
+    char *result_std1 = strnstr(haystack, needle1, len);
+    char *result_std2 = strnstr(haystack, needle2, len);
+
+    char *result_custom1 = ft_strnstr(haystack, needle1, len);
+    char *result_custom2 = ft_strnstr(haystack, needle2, len);
+
+    printf("Searching for '%s': %s\n", needle1, result_std1);
+    printf("Searching for '%s': %s\n", needle2, result_std2);
+
+    printf("Searching for '%s': %s\n", needle1, result_custom1);
+    printf("Searching for '%s': %s\n", needle2, result_custom2);
+    return 0;
+}
+*/

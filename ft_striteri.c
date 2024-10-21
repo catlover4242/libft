@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <ctype.h>
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
@@ -25,3 +26,19 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 		i++;
 	}
 }
+
+/*
+void	to_upper(unsigned int i, char *c)
+{
+	*c = (char)toupper((unsigned char)*c);
+}
+
+int main(void)
+{
+	char string[] = "testtesqwdqwdqwdt";
+
+	ft_striteri(string, to_upper);
+	write(1, string, strlen(string));
+	return 0;
+}
+*/

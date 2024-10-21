@@ -1,17 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 16:25:10 by pleblond          #+#    #+#             */
-/*   Updated: 2024/10/11 16:25:10 by pleblond         ###   ########.fr       */
+/*   Created: 2024/10/11 16:24:55 by pleblond          #+#    #+#             */
+/*   Updated: 2024/10/11 16:24:55 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
+}
+
+/*
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*list;
@@ -24,23 +33,15 @@ t_list	*ft_lstnew(void *content)
 	return (list);
 }
 
-/*
-int	main()
+int main()
 {
-	char *content = strdup("123");
-	t_list *boite;
 
-	boite = ft_lstnew(content);
-	if (boite == NULL)
-	{
-		printf("probleme d'allocation de memoire\n");
-		return (1);
-	}
-	printf("Content: %s\n", (char *)boite->content);
-    if (boite->next == NULL)
-    	printf("c la fin\n");
-    free(content);
-    free(boite);
-    return (0);
+	t_list *node;
+	char *str = strdup("test1323");
+
+	node = ft_lstnew(str);
+	ft_lstdelone(node, free);
+
+	printf("element bien supprime!");
 }
 */

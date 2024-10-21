@@ -30,3 +30,29 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	}
 	return (r);
 }
+
+/*
+size_t	ft_strlen(const char *c)
+{
+	size_t	i;
+
+	i = 0;
+	while (c[i] != '\0')
+		i++;
+	return (i);
+}
+
+int main() {
+    char src[] = "Hello, World!";
+    char dest1[20], dest2[10];
+
+    printf("'%s' %zu\n", dest1, ft_strlcpy(dest1, src, sizeof(dest1)));
+    printf("'%s' %zu\n", dest2, ft_strlcpy(dest2, src, sizeof(dest2)));
+
+    char dest3[20], dest4[10];
+    printf("'%s' %zu\n", dest3, strlcpy(dest3, src, sizeof(dest3)));
+    printf("'%s' %zu\n", dest4, strlcpy(dest4, src, sizeof(dest4)));
+
+    return 0;
+}
+*/

@@ -29,3 +29,20 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
+
+/*
+int main() {
+    char jsp[] = "Hello, World!";
+    char *result;
+
+    result = ft_memchr(jsp, 'W', 20);
+
+    if (result != NULL) {
+        printf("Caractere trouve : %c\n", *result);
+    } 
+	else {
+        printf("Caractere non trouve.\n");
+    }
+    return 0;
+}
+*/

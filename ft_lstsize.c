@@ -1,17 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 16:25:10 by pleblond          #+#    #+#             */
-/*   Updated: 2024/10/11 16:25:10 by pleblond         ###   ########.fr       */
+/*   Created: 2024/10/11 16:25:14 by pleblond          #+#    #+#             */
+/*   Updated: 2024/10/11 16:25:14 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+int	ft_lstsize(t_list *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
+}
+/*
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*list;
@@ -24,23 +37,18 @@ t_list	*ft_lstnew(void *content)
 	return (list);
 }
 
-/*
-int	main()
+int main()
 {
-	char *content = strdup("123");
-	t_list *boite;
+	t_list *node1 = ft_lstnew("Node1");
+	t_list *node2 = ft_lstnew("Node2");
+	t_list *node3 = ft_lstnew("Node3");
+	t_list *node4 = ft_lstnew("Node4");
 
-	boite = ft_lstnew(content);
-	if (boite == NULL)
-	{
-		printf("probleme d'allocation de memoire\n");
-		return (1);
-	}
-	printf("Content: %s\n", (char *)boite->content);
-    if (boite->next == NULL)
-    	printf("c la fin\n");
-    free(content);
-    free(boite);
-    return (0);
+	node1->next = node2;
+	node2->next = node3;
+	node3->next = node4;
+
+	printf("size : %d\n", ft_lstsize(node1));
+	return 0;
 }
 */

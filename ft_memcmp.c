@@ -31,3 +31,23 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
+
+/*
+int main() {
+    const char test1[] = "abcde";
+    const char test2[] = "abCde";
+
+    int result = ft_memcmp(test1, test2, 5);
+
+    if (result < 0) {
+        printf("test1 est avant test2\n");
+    } 
+	else if (result > 0) {
+        printf("test1 est après test2\n");
+    } 
+	else {
+        printf("test1 et test2 sont pareils\n");
+    }
+    return 0;
+}
+*/

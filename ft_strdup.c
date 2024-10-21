@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_strdup(const char *s)
 {
@@ -30,3 +29,59 @@ char	*ft_strdup(const char *s)
 	string[i] = '\0';
 	return (string);
 }
+
+/*
+size_t	ft_strlen(const char *c)
+{
+	size_t	i;
+
+	i = 0;
+	while (c[i] != '\0')
+		i++;
+	return (i);
+}
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
+}
+
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
+
+int	main(void)
+{
+	char *phrase = "je suis trop beau";
+	char *copy;
+
+	// test avec une phrase //
+	copy = ft_strdup(phrase);
+	if (copy != NULL)
+	{
+		ft_putstr_fd(copy, 1);
+		write(1, "\n", 1);
+		free(copy);
+	}
+
+	// test avec rien //
+	phrase = "";
+	copy = ft_strdup(phrase);
+	if (copy != NULL)
+	{
+		ft_putstr_fd(copy, 1);
+		write(1, "\n", 1);
+		free(copy);
+	}
+	return 0;
+}
+
+*/

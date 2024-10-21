@@ -37,3 +37,16 @@ void	ft_putnbr_fd(int n, int fd)
 		}
 	}
 }
+/*
+int main() {
+    ft_putnbr_fd(12345, 1);
+    write(1, "\n", 1);
+    ft_putnbr_fd(-54321, 1);
+    write(1, "\n", 1);
+    ft_putnbr_fd(0, 1);
+    write(1, "\n", 1);
+    ft_putnbr_fd(-2147483648, 1);
+    write(1, "\n", 1);
+    return 0;
+}
+*/

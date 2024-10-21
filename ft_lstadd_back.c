@@ -1,17 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pleblond <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 16:25:10 by pleblond          #+#    #+#             */
-/*   Updated: 2024/10/11 16:25:10 by pleblond         ###   ########.fr       */
+/*   Created: 2024/10/11 16:24:38 by pleblond          #+#    #+#             */
+/*   Updated: 2024/10/11 16:24:38 by pleblond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*i;
+
+	if (new == NULL)
+		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	i = *lst;
+	while (i -> next != NULL)
+		i = i -> next;
+	i -> next = new;
+}
+
+/*
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*list;
@@ -24,23 +42,28 @@ t_list	*ft_lstnew(void *content)
 	return (list);
 }
 
-/*
-int	main()
+void	print_list(t_list *lst)
 {
-	char *content = strdup("123");
-	t_list *boite;
-
-	boite = ft_lstnew(content);
-	if (boite == NULL)
+	while (lst != NULL)
 	{
-		printf("probleme d'allocation de memoire\n");
-		return (1);
+		printf("%s -> ", (char *)lst->content);
+		lst = lst->next;
 	}
-	printf("Content: %s\n", (char *)boite->content);
-    if (boite->next == NULL)
-    	printf("c la fin\n");
-    free(content);
-    free(boite);
-    return (0);
+	printf("NULL\n");
+}
+
+int main()
+{
+	t_list *test = NULL;
+	t_list *new_node1;
+	t_list *new_node2;
+
+	new_node1 = ft_lstnew("bonjour");
+	new_node2 = ft_lstnew("ca va ?");
+	
+	ft_lstadd_back(&test, new_node1);
+	ft_lstadd_back(&test, new_node2);
+	print_list(test);
+	return(0);
 }
 */

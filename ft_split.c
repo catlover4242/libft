@@ -96,28 +96,25 @@ char	**ft_split(char const *s, char c)
 
 /*
 int main() {
-    char str[] = "Bonjour tout le monde !";
+    char str[] = "salut ca va les copains";
     char sep = ' ';
     char **result;
     int i = 0;
 
-    // Appel de la fonction ft_split
     result = ft_split(str, sep);
 
-    // Vérification si l'allocation a réussi
     if (!result) {
-        printf("Erreur d'allocation mémoire.\n");
-        return 1; // Erreur
+        printf("probleme d'allocation\n");
+        return 1;
     }
 
-    // Impression des mots extraits
-    while (result[i]) {
-        printf("Mot %d: %s\n", i, result[i]);
-        free(result[i]); // Libération de la mémoire allouée pour chaque mot
+    while (result[i]) 
+	{
+        printf("%d %s\n", i, result[i]);
+        free(result[i]);
         i++;
     }
     free(result);
-
-    return 0; // Succès
+    return 0;
 }
 */
